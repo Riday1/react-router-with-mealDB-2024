@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import MealsCategory from './components/MealsCategory/MealsCategory';
 import MealsByCategory from './MealsByCategory/MealsByCategory';
+import MealDetials from './components/MealDetials/MealDetials';
 
 function App() {
 
@@ -25,6 +26,11 @@ function App() {
           path: '/meals/category/:mealCategory',
           loader: async ({ params }) => fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.mealCategory}`),
           element: <MealsByCategory></MealsByCategory>
+        },
+        {
+          path: '/meal-details/:idMeal',
+          loader: async ({ params }) => fetch(`www.themealdb.com/api/json/v1/1/lookup.php?i=${params.idMeal}`),
+          element: <MealDetials></MealDetials>
         }
 
 
